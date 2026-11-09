@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="cloverBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10B981"/>
+      <stop offset="100%" stop-color="#047857"/>
+    </linearGradient>
+  </defs>
+  <rect width="100" height="100" rx="22" fill="url(#cloverBg)"/>
+  <g transform="translate(50,45) scale(0.24)">
+    <path d="M 0,15 C 0,75 25,130 75,165 C 70,170 60,170 52,165 C 12,125 -10,70 -10,15 Z" fill="#ffffff" opacity="0.95"/>
+    <g transform="rotate(45)"><path d="M 0,0 C -25,-15 -62,-50 -62,-92 C -62,-122 -40,-142 -12,-142 C -4,-142 0,-130 0,-120 C 0,-130 4,-142 12,-142 C 40,-142 62,-122 62,-92 C 62,-50 25,-15 0,0 Z" fill="#ffffff"/><line x1="0" y1="-20" x2="0" y2="-90" stroke="#059669" stroke-width="3" stroke-linecap="round" opacity="0.35"/></g>
+    <g transform="rotate(135)"><path d="M 0,0 C -25,-15 -62,-50 -62,-92 C -62,-122 -40,-142 -12,-142 C -4,-142 0,-130 0,-120 C 0,-130 4,-142 12,-142 C 40,-142 62,-122 62,-92 C 62,-50 25,-15 0,0 Z" fill="#ffffff"/><line x1="0" y1="-20" x2="0" y2="-90" stroke="#059669" stroke-width="3" stroke-linecap="round" opacity="0.35"/></g>
+    <g transform="rotate(225)"><path d="M 0,0 C -25,-15 -62,-50 -62,-92 C -62,-122 -40,-142 -12,-142 C -4,-142 0,-130 0,-120 C 0,-130 4,-142 12,-142 C 40,-142 62,-122 62,-92 C 62,-50 25,-15 0,0 Z" fill="#ffffff"/><line x1="0" y1="-20" x2="0" y2="-90" stroke="#059669" stroke-width="3" stroke-linecap="round" opacity="0.35"/></g>
+    <g transform="rotate(315)"><path d="M 0,0 C -25,-15 -62,-50 -62,-92 C -62,-122 -40,-142 -12,-142 C -4,-142 0,-130 0,-120 C 0,-130 4,-142 12,-142 C 40,-142 62,-122 62,-92 C 62,-50 25,-15 0,0 Z" fill="#ffffff"/><line x1="0" y1="-20" x2="0" y2="-90" stroke="#059669" stroke-width="3" stroke-linecap="round" opacity="0.35"/></g>
+    <circle cx="0" cy="0" r="5" fill="#d1fae5"/>
+  </g>
+</svg>
