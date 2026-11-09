@@ -1,0 +1,15 @@
+# Dependencies & Logs
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment & Credentials
+.env
+.env.local
+.clasp.json
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini

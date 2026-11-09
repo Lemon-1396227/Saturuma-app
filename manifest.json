@@ -1,0 +1,55 @@
+{
+  "id": "./index.html",
+  "name": "Saturuma - Manajemen Keuangan",
+  "short_name": "Saturuma",
+  "description": "Aplikasi Pengelola Keuangan dan Anggaran Rumah Tangga",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#10B981",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Scan Struk",
+      "short_name": "Scan",
+      "description": "Pindai struk belanja dengan kamera / AI",
+      "url": "./index.html?mode=input&sub=scan",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Catat Transaksi",
+      "short_name": "Input",
+      "description": "Catat pengeluaran belanja baru",
+      "url": "./index.html?mode=input&sub=manual",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    }
+  ],
+  "categories": ["finance", "productivity", "utilities"]
+}
