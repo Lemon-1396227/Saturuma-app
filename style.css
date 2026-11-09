@@ -1,0 +1,1838 @@
+        /* ========================================================
+           1. CSS VARIABLES & DYNAMIC ACCENT SYSTEM
+           ======================================================== */
+        :root {
+            /* Default Accent (Emerald) */
+            --primary: #10B981;
+            --primary-hover: #059669;
+            --primary-light: rgba(16, 185, 129, 0.12);
+            --primary-glow: rgba(16, 185, 129, 0.35);
+            --primary-border: rgba(16, 185, 129, 0.3);
+
+            /* Tema Terang (Default & Light Mode) */
+            --bg-main: #f8fafc;
+            --bg-surface: #ffffff;
+            --bg-card: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border-color: #E5E7EB; /* 1. Thin & Subtle: #E5E7EB untuk light mode */
+            --sidebar-bg: #ffffff;
+            --sidebar-border: #E5E7EB;
+            --glass-backdrop: blur(14px);
+
+            /* Status & Highlights */
+            --danger: #ef4444;
+            --danger-light: rgba(239, 68, 68, 0.12);
+            --warning: #f59e0b;
+            --warning-light: rgba(245, 158, 11, 0.12);
+            --info: #3b82f6;
+            --info-light: rgba(59, 130, 246, 0.12);
+            --success: #10b981;
+            --success-light: rgba(16, 185, 129, 0.14);
+
+            /* Multi-layer Soft Shadows */
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.03), 0 1px 3px 0 rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 2px 4px -1px rgba(0, 0, 0, 0.03), 0 10px 20px -4px rgba(15, 23, 42, 0.06);
+            --shadow-lg: 0 4px 6px -2px rgba(0, 0, 0, 0.03), 0 20px 32px -6px rgba(15, 23, 42, 0.08);
+            /* 2. Border Radius: Ukuran membulat ramah 12px hingga 16px */
+            --radius-sm: 10px;
+            --radius-md: 14px;
+            --radius-lg: 16px;
+        }
+
+        /* ---------------- Tema Terang (Light Mode Eksplisit) ---------------- */
+        :root.theme-light,
+        body.theme-light {
+            --bg-main: #f8fafc;
+            --bg-surface: #ffffff;
+            --bg-card: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border-color: #E5E7EB; /* 1. Thin & Subtle: Abu-abu netral #E5E7EB */
+            --sidebar-bg: #ffffff;
+            --sidebar-border: #E5E7EB;
+            --glass-backdrop: blur(14px);
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.03), 0 1px 3px 0 rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 2px 4px -1px rgba(0, 0, 0, 0.03), 0 10px 20px -4px rgba(15, 23, 42, 0.06);
+            --shadow-lg: 0 4px 6px -2px rgba(0, 0, 0, 0.03), 0 20px 32px -6px rgba(15, 23, 42, 0.08);
+        }
+
+        /* ---------------- Tema Gelap (Dark Mode) ---------------- */
+        :root.theme-dark,
+        body.theme-dark {
+            --bg-main: #090d16;
+            --bg-surface: #0f172a;
+            --bg-card: rgba(19, 29, 49, 0.92);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: #374151; /* 1. Thin & Subtle: Abu-abu netral #374151 */
+            --sidebar-bg: #0f172a;
+            --sidebar-border: #374151;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.4);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.4);
+            --shadow-lg: 0 16px 36px rgba(0,0,0,0.5);
+        }
+
+        /* ---------------- Tema Neo-Brutalism (Tema Utama) ---------------- */
+        :root.theme-brutalism,
+        body.theme-brutalism {
+            --bg-main: #FDF9F0;
+            --bg-surface: #FFFFFF;
+            --bg-card: #FFFFFF;
+            --text-main: #000000;
+            --text-muted: #374151;
+            --border-color: #000000;
+            --sidebar-bg: #FFFDF9;
+            --sidebar-border: #000000;
+            --glass-backdrop: none;
+            --shadow-sm: 2px 2px 0px #000000;
+            --shadow-md: 4px 4px 0px #000000;
+            --shadow-lg: 6px 6px 0px #000000;
+        }
+
+        body.theme-brutalism .glass-card,
+        body.theme-brutalism .kpi-card,
+        body.theme-brutalism .modal-box,
+        body.theme-brutalism .receipt-card,
+        body.theme-brutalism .item-row-box,
+        body.theme-brutalism .dropzone-area {
+            background-color: #FFFFFF !important;
+            border: 2.5px solid #000000 !important;
+            box-shadow: 4px 4px 0px #000000 !important;
+            border-radius: 14px !important;
+        }
+
+        body.theme-brutalism #dashboardSubNav,
+        body.theme-brutalism #remindersSubNav {
+            background-color: #FFFFFF !important;
+            border: 2px solid #000000 !important;
+            box-shadow: 2.5px 2.5px 0px #000000 !important;
+        }
+
+        body.theme-brutalism .kpi-card:hover {
+            transform: translate(-2px, -2px) !important;
+            box-shadow: 6px 6px 0px #000000 !important;
+        }
+
+        body.theme-brutalism .sidebar {
+            border-right: 2.5px solid #000000 !important;
+            box-shadow: 4px 0 0px #000000 !important;
+            background-color: #FFFDF9 !important;
+        }
+
+        body.theme-brutalism .mobile-bottom-nav {
+            border-top: 2.5px solid #000000 !important;
+            box-shadow: 0px -4px 0px #000000 !important;
+            background-color: #FFFFFF !important;
+        }
+
+        body.theme-brutalism .bottom-nav-fab {
+            background-color: var(--primary) !important;
+            color: #000000 !important;
+            border: 2.5px solid #000000 !important;
+            box-shadow: 3.5px 3.5px 0px #000000 !important;
+        }
+        body.theme-brutalism .bottom-nav-fab:active {
+            transform: translate(2px, 2px) !important;
+            box-shadow: 1px 1px 0px #000000 !important;
+        }
+        body.theme-brutalism .bottom-nav-fab.active {
+            box-shadow: 4.5px 4.5px 0px #000000 !important;
+            transform: translate(-1px, -1px) scale(1.04) !important;
+        }
+
+        body.theme-brutalism header {
+            border-bottom: 2.5px solid #000000 !important;
+            box-shadow: 0 3px 0px #000000 !important;
+            background-color: #FFFDF9 !important;
+        }
+
+        body.theme-brutalism .btn-primary {
+            background-color: var(--primary) !important;
+            color: #000000 !important;
+            border: 2.5px solid #000000 !important;
+            box-shadow: 3.5px 3.5px 0px #000000 !important;
+            font-weight: 800 !important;
+            border-radius: 12px !important;
+            transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        }
+        body.theme-brutalism .btn-primary:hover {
+            transform: translate(-1px, -1px) !important;
+            box-shadow: 5px 5px 0px #000000 !important;
+        }
+        body.theme-brutalism .btn-primary:active {
+            transform: translate(2px, 2px) !important;
+            box-shadow: 1px 1px 0px #000000 !important;
+        }
+
+        body.theme-brutalism .btn-secondary {
+            background-color: #FFFFFF !important;
+            color: #000000 !important;
+            border: 2px solid #000000 !important;
+            box-shadow: 3px 3px 0px #000000 !important;
+            font-weight: 700 !important;
+            border-radius: 12px !important;
+            transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        }
+        body.theme-brutalism .btn-secondary:hover {
+            background-color: var(--primary-light) !important;
+            transform: translate(-1px, -1px) !important;
+            box-shadow: 4.5px 4.5px 0px #000000 !important;
+        }
+        body.theme-brutalism .btn-secondary:active {
+            transform: translate(2px, 2px) !important;
+            box-shadow: 1px 1px 0px #000000 !important;
+        }
+
+        body.theme-brutalism .btn-ai-magic {
+            background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%) !important;
+            color: #FFFFFF !important;
+            border: 2.5px solid #000000 !important;
+            box-shadow: 4px 4px 0px #000000 !important;
+            font-weight: 800 !important;
+            text-shadow: 1px 1px 0px #000000 !important;
+        }
+        body.theme-brutalism .btn-ai-magic:hover {
+            transform: translate(-1px, -1px) !important;
+            box-shadow: 6px 6px 0px #000000 !important;
+        }
+        body.theme-brutalism .btn-ai-magic:active {
+            transform: translate(2px, 2px) !important;
+            box-shadow: 1px 1px 0px #000000 !important;
+        }
+
+        body.theme-brutalism .custom-input,
+        body.theme-brutalism .custom-select,
+        body.theme-brutalism .custom-textarea {
+            background-color: #FFFFFF !important;
+            color: #000000 !important;
+            border: 2px solid #000000 !important;
+            box-shadow: 2.5px 2.5px 0px #000000 !important;
+            border-radius: 10px !important;
+            font-weight: 600 !important;
+            transition: all 0.15s ease !important;
+        }
+        body.theme-brutalism .custom-input:focus,
+        body.theme-brutalism .custom-select:focus,
+        body.theme-brutalism .custom-textarea:focus {
+            box-shadow: 4.5px 4.5px 0px #000000 !important;
+            background-color: #FEFEF9 !important;
+            border-color: #000000 !important;
+            outline: none !important;
+        }
+
+        body.theme-brutalism .cat-pill {
+            border: 2px solid #000000 !important;
+            box-shadow: 2.5px 2.5px 0px #000000 !important;
+            font-weight: 700 !important;
+            color: #000000 !important;
+            background-color: #FFFFFF;
+        }
+        body.theme-brutalism .cat-pill:hover {
+            transform: translate(-1px, -1px) !important;
+            box-shadow: 3.5px 3.5px 0px #000000 !important;
+        }
+        body.theme-brutalism .cat-pill.active {
+            background-color: var(--primary) !important;
+            color: #000000 !important;
+            box-shadow: 3.5px 3.5px 0px #000000 !important;
+        }
+
+        body.theme-brutalism .nav-link-btn.active {
+            background-color: var(--primary) !important;
+            color: #000000 !important;
+            border: 2.5px solid #000000 !important;
+            box-shadow: 3.5px 3.5px 0px #000000 !important;
+            font-weight: 800 !important;
+        }
+        body.theme-brutalism .nav-link-btn.active i {
+            color: #000000 !important;
+        }
+
+        body.theme-brutalism #methodNoticeBox {
+            background-color: #FAF5FF !important;
+            border: 2px solid #000000 !important;
+            box-shadow: 3px 3px 0px #000000 !important;
+            color: #000000 !important;
+        }
+
+        body.theme-brutalism #toastContainer > div {
+            border: 2.5px solid #000000 !important;
+            box-shadow: 4px 4px 0px #000000 !important;
+            background-color: #FFFFFF !important;
+            color: #000000 !important;
+            font-weight: 800 !important;
+        }
+
+        body.theme-brutalism .kpi-card .w-7,
+        body.theme-brutalism .kpi-card .w-8,
+        body.theme-brutalism .kpi-card .w-9 {
+            border: 2px solid #000000 !important;
+            box-shadow: 2px 2px 0px #000000 !important;
+        }
+
+        body.theme-brutalism .modal-box {
+            border: 3px solid #000000 !important;
+            box-shadow: 7px 7px 0px #000000 !important;
+            background-color: #FFFFFF !important;
+        }
+
+        body.theme-brutalism #kpiBudgetProgressBar {
+            border-right: 2px solid #000000 !important;
+        }
+
+        /* ========================================================
+           MODERN TYPOGRAPHY SYSTEM (5 PRINSIP UTAMA)
+           1. Font Family: Modern Sans-Serif (Plus Jakarta Sans & Inter)
+           2. Hierarki Heading: Bold/Semi-Bold, Solid Dark (slate-900 / white)
+           3. Kontras Body Text: Regular/Medium, Soft Slate-500
+           4. Spacing & Line Height: leading-relaxed (1.6 - 1.65)
+           5. Microcopy: text-xs/text-sm, Uppercase, tracking-wider
+           ======================================================== */
+        * {
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            min-height: 100vh;
+            margin: 0;
+            overflow-x: hidden;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            transition: background-color 0.25s ease, color 0.25s ease;
+        }
+
+        /* 2. Hierarki Heading (Solid Dark #0f172a pada Light Mode, White pada Dark Mode) */
+        h1, h2, h3, h4, h5, h6, .heading-title, .font-heading {
+            font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+            font-weight: 700;
+            color: var(--text-main);
+            line-height: 1.25;
+            letter-spacing: -0.025em;
+        }
+        body.theme-dark h1, body.theme-dark h2, body.theme-dark h3, body.theme-dark h4, body.theme-dark h5, body.theme-dark h6, body.theme-dark .heading-title, body.theme-dark .font-heading {
+            color: #ffffff;
+        }
+        body.theme-brutalism h1, body.theme-brutalism h2, body.theme-brutalism h3, body.theme-brutalism h4, body.theme-brutalism h5, body.theme-brutalism h6, body.theme-brutalism .heading-title {
+            color: #000000;
+        }
+
+        /* Memastikan Judul Aplikasi & Judul Bar Atas Selalu Kontras Tinggi */
+        #topBarTitle, .app-brand-title {
+            color: var(--text-main) !important;
+        }
+
+        /* 3. Kontras Body Text & 4. Spacing Line Height (Ruang Bernapas pada Paragraf) */
+        p, .body-text, .desc-text {
+            font-weight: 400;
+            color: #64748b; /* text-slate-500 */
+            line-height: 1.625; /* leading-relaxed */
+        }
+        body.theme-dark p, body.theme-dark .body-text, body.theme-dark .desc-text {
+            color: #94a3b8; /* text-slate-400 */
+        }
+        body.theme-brutalism p, body.theme-brutalism .body-text, body.theme-brutalism .desc-text {
+            color: #374151;
+        }
+
+        /* 5. Microcopy: Label, Tag, Subheading Kecil Elegan (text-xs / uppercase / tracking-wider) */
+        .microcopy-tag, .microcopy-label, .meta-label {
+            font-size: 0.75rem; /* text-xs */
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em; /* tracking-wider */
+            color: #64748b;
+            line-height: 1.25;
+        }
+        body.theme-dark .microcopy-tag, body.theme-dark .microcopy-label, body.theme-dark .meta-label {
+            color: #94a3b8;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 999px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+        /* ========================================================
+           MODERN CARD BORDER SYSTEM (5 PRINSIP UTAMA)
+           1. Thin & Subtle: 1px abu-abu netral (#E5E7EB light, #374151 dark)
+           2. Border Radius: 12px - 16px membulat ramah
+           3. Gradient Border: background-clip ungu-ke-biru untuk Hero Card
+           4. Hover Glow Animation: transisi border-color halus & pendaran glow
+           5. Borderless / Shadow-first: tanpa border fisik, box-shadow & tint
+           ======================================================== */
+
+        /* Glass & Card Styles (1. Thin & Subtle 1px + 2. Border Radius 16px) */
+        .glass-card {
+            background-color: var(--bg-card);
+            -webkit-backdrop-filter: var(--glass-backdrop, blur(14px));
+            backdrop-filter: var(--glass-backdrop, blur(14px));
+            border: 1px solid var(--border-color); /* 1. Thin & Subtle */
+            border-radius: var(--radius-lg, 16px); /* 2. Border Radius 16px */
+            box-shadow: var(--shadow-sm);
+            transition: box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease, transform 0.25s ease;
+        }
+
+        /* 4. Hover Glow Animation pada Glass Card */
+        .glass-card:hover {
+            border-color: rgba(16, 185, 129, 0.45);
+            box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.14),
+                        0 0 16px 2px rgba(16, 185, 129, 0.1);
+        }
+        body.theme-dark .glass-card:hover {
+            border-color: rgba(16, 185, 129, 0.55);
+            box-shadow: 0 12px 30px -5px rgba(0, 0, 0, 0.55),
+                        0 0 20px 2px rgba(16, 185, 129, 0.18);
+        }
+
+        /* 3. Gradient Border (Khusus Hero/Pricing Card: Ungu ke Biru via background-clip) */
+        .card-gradient-border {
+            position: relative;
+            border-radius: 16px; /* 2. Radius 16px */
+            background: linear-gradient(var(--bg-card), var(--bg-card)) padding-box,
+                        linear-gradient(135deg, #8B5CF6 0%, #3B82F6 100%) border-box;
+            border: 1.5px solid transparent;
+            box-shadow: 0 4px 20px -2px rgba(139, 92, 246, 0.12),
+                        0 2px 6px -1px rgba(59, 130, 246, 0.08);
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                        box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                        background 0.3s ease;
+        }
+        .card-gradient-border:hover {
+            transform: translateY(-2.5px);
+            background: linear-gradient(var(--bg-card), var(--bg-card)) padding-box,
+                        linear-gradient(135deg, #A855F7 0%, #2563EB 100%) border-box;
+            box-shadow: 0 14px 34px -4px rgba(139, 92, 246, 0.28),
+                        0 0 22px 2px rgba(59, 130, 246, 0.22);
+        }
+        body.theme-dark .card-gradient-border {
+            box-shadow: 0 6px 24px -2px rgba(0, 0, 0, 0.5),
+                        0 0 16px 1px rgba(139, 92, 246, 0.2);
+        }
+        body.theme-dark .card-gradient-border:hover {
+            box-shadow: 0 16px 38px -4px rgba(0, 0, 0, 0.7),
+                        0 0 28px 3px rgba(139, 92, 246, 0.32);
+        }
+
+        /* 4. Hover Glow Animation Utility */
+        .card-hover-glow {
+            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+                        border-color 0.25s ease,
+                        box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .card-hover-glow:hover {
+            transform: translateY(-2.5px);
+            border-color: rgba(16, 185, 129, 0.5) !important;
+            box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.16),
+                        0 0 16px 2px rgba(16, 185, 129, 0.12) !important;
+        }
+        body.theme-dark .card-hover-glow:hover {
+            border-color: rgba(16, 185, 129, 0.6) !important;
+            box-shadow: 0 12px 30px -5px rgba(0, 0, 0, 0.55),
+                        0 0 20px 2px rgba(16, 185, 129, 0.2) !important;
+        }
+
+        /* Modern Category Card: 5 Prinsip Border Card (Thin & Subtle 1px, Radius 16px, Accent Left Border, Tanpa Hover Glow, Shadow Mengikuti Aksen Kategori) */
+        .category-card {
+            border-radius: 16px !important;
+            border-width: 1px !important;
+            border-style: solid !important;
+            box-shadow: var(--cat-shadow, 0 4px 14px -2px rgba(16, 185, 129, 0.12), 0 1px 3px 0 rgba(16, 185, 129, 0.05));
+            transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+                        box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+                        border-color 0.2s ease;
+        }
+        .category-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--cat-shadow-hover, 0 8px 22px -3px rgba(16, 185, 129, 0.22), 0 2px 6px 0 rgba(16, 185, 129, 0.08)) !important;
+        }
+        body.theme-dark .category-card {
+            box-shadow: var(--cat-shadow, 0 4px 16px -2px rgba(16, 185, 129, 0.18)), 0 2px 6px 0 rgba(0, 0, 0, 0.4);
+        }
+        body.theme-dark .category-card:hover {
+            box-shadow: var(--cat-shadow-hover, 0 8px 24px -3px rgba(16, 185, 129, 0.28)), 0 2px 6px 0 rgba(0, 0, 0, 0.5) !important;
+        }
+
+        /* ========================================================
+           DYNAMIC ISLAND PUSH NOTIFICATION (TOP BAR - THEMED)
+           ======================================================== */
+        .dynamic-island-notification {
+            pointer-events: auto;
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 16px 8px 14px;
+            background-color: var(--bg-surface);
+            color: var(--text-main);
+            border-radius: 9999px; /* Kapsul Pill Shape khas Dynamic Island */
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 25px -4px rgba(0, 0, 0, 0.08),
+                        0 4px 10px -2px rgba(0, 0, 0, 0.04);
+            backdrop-filter: var(--glass-backdrop, blur(14px));
+            -webkit-backdrop-filter: var(--glass-backdrop, blur(14px));
+            font-size: 12px;
+            font-weight: 600;
+            line-height: 1.35;
+            letter-spacing: -0.01em;
+            max-width: 92vw;
+            animation: dynamicIslandDrop 0.42s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+                        opacity 0.25s ease,
+                        background-color 0.2s ease,
+                        color 0.2s ease,
+                        border-color 0.2s ease;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        body.theme-dark .dynamic-island-notification {
+            background-color: var(--bg-surface);
+            color: var(--text-main);
+            border-color: var(--border-color);
+            box-shadow: 0 14px 35px -4px rgba(0, 0, 0, 0.6),
+                        0 4px 14px 0 rgba(0, 0, 0, 0.4);
+        }
+
+        body.theme-brutalism .dynamic-island-notification {
+            background-color: #FFFFFF !important;
+            color: #000000 !important;
+            border: 2.5px solid #000000 !important;
+            border-radius: 9999px !important;
+            box-shadow: 4px 4px 0px #000000 !important;
+            font-weight: 800 !important;
+        }
+
+        @keyframes dynamicIslandDrop {
+            0% {
+                transform: translateY(-40px) scale(0.65);
+                opacity: 0;
+                filter: blur(4px);
+            }
+            65% {
+                transform: translateY(4px) scale(1.03);
+                opacity: 1;
+                filter: blur(0px);
+            }
+            100% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+                filter: blur(0px);
+            }
+        }
+
+        .dynamic-island-exit {
+            animation: dynamicIslandRetract 0.28s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+        }
+
+        @keyframes dynamicIslandRetract {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-35px) scale(0.7);
+                opacity: 0;
+                filter: blur(4px);
+            }
+        }
+
+        /* 5. Borderless / Shadow-first (Tanpa border fisik, mengandalkan box-shadow & tint latar) */
+        .card-borderless, .card-shadow-first {
+            border: none !important;
+            border-color: transparent !important;
+            border-radius: 16px; /* 2. Radius 16px */
+            background-color: var(--bg-surface);
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04),
+                        0 8px 20px -3px rgba(15, 23, 42, 0.06),
+                        0 2px 4px -2px rgba(15, 23, 42, 0.03);
+            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+                        box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        body.theme-light .card-borderless, body.theme-light .card-shadow-first {
+            background-color: #ffffff;
+            box-shadow: 0 2px 6px -1px rgba(15, 23, 42, 0.05),
+                        0 10px 24px -4px rgba(15, 23, 42, 0.06);
+        }
+        body.theme-dark .card-borderless, body.theme-dark .card-shadow-first {
+            background-color: rgba(19, 29, 49, 0.95);
+            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.55);
+        }
+        .card-borderless:hover, .card-shadow-first:hover {
+            transform: translateY(-2.5px);
+            box-shadow: 0 16px 36px -4px rgba(15, 23, 42, 0.1),
+                        0 4px 12px -2px rgba(15, 23, 42, 0.05);
+        }
+        body.theme-dark .card-borderless:hover, body.theme-dark .card-shadow-first:hover {
+            box-shadow: 0 18px 42px -4px rgba(0, 0, 0, 0.7);
+        }
+
+        .kpi-card {
+            border-radius: var(--radius-md, 14px); /* 2. Border radius 14px */
+            border: 1px solid var(--border-color); /* 1. Thin & Subtle */
+            background: var(--bg-surface);
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+                        border-color 0.25s ease, 
+                        box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .kpi-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.15), 0 0 16px 2px rgba(16, 185, 129, 0.1);
+            border-color: rgba(16, 185, 129, 0.45);
+        }
+        .kpi-card .w-7,
+        .kpi-card .w-8,
+        .kpi-card .w-9 {
+            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .kpi-card:hover .w-7,
+        .kpi-card:hover .w-8,
+        .kpi-card:hover .w-9 {
+            transform: scale(1.08);
+        }
+
+        /* Semantics Color Coding & Subtle Glow for Light Mode */
+        .kpi-card.kpi-emerald { border-top: 3.5px solid #10b981; }
+        .kpi-card.kpi-emerald:hover { border-color: rgba(16, 185, 129, 0.45); }
+        .kpi-card.kpi-blue { border-top: 3.5px solid #3b82f6; }
+        .kpi-card.kpi-blue:hover { border-color: rgba(59, 130, 246, 0.45); }
+        .kpi-card.kpi-amber { border-top: 3.5px solid #f59e0b; }
+        .kpi-card.kpi-amber:hover { border-color: rgba(245, 158, 11, 0.45); }
+        .kpi-card.kpi-rose { border-top: 3.5px solid #ef4444; }
+        .kpi-card.kpi-rose:hover { border-color: rgba(239, 68, 68, 0.45); }
+
+        /* Subtle radial background glow on card hover */
+        .kpi-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            pointer-events: none;
+            opacity: 0.5;
+            transition: opacity 0.3s ease;
+        }
+        .kpi-card.kpi-emerald::before { background: radial-gradient(circle at top right, rgba(16, 185, 129, 0.14), transparent 70%); }
+        .kpi-card.kpi-blue::before { background: radial-gradient(circle at top right, rgba(59, 130, 246, 0.14), transparent 70%); }
+        .kpi-card.kpi-amber::before { background: radial-gradient(circle at top right, rgba(245, 158, 11, 0.14), transparent 70%); }
+        .kpi-card.kpi-rose::before { background: radial-gradient(circle at top right, rgba(239, 68, 68, 0.14), transparent 70%); }
+        .kpi-card:hover::before { opacity: 1; }
+
+        /* Item Row Box & Receipt Card Improvements (Shadow Mengikuti Aksen Kategori, Tanpa Hover Glow) */
+        .item-row-box {
+            border-radius: 14px;
+            box-shadow: var(--cat-shadow, 0 3px 10px -2px rgba(16, 185, 129, 0.1));
+            transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+        }
+        .item-row-box:hover {
+            box-shadow: var(--cat-shadow-hover, 0 6px 16px -2px rgba(16, 185, 129, 0.18)) !important;
+        }
+
+        .receipt-card {
+            border-radius: 16px;
+            box-shadow: var(--cat-shadow, 0 4px 14px -2px rgba(16, 185, 129, 0.12));
+            transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
+        }
+        .receipt-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--cat-shadow-hover, 0 8px 22px -3px rgba(16, 185, 129, 0.22)) !important;
+        }
+
+        /* Dynamic Accent Buttons */
+        .btn-primary {
+            background-color: var(--primary);
+            color: #ffffff;
+            font-weight: 700;
+            border-radius: 10px;
+            padding: 8px 16px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px var(--primary-glow);
+            border: 1px solid transparent;
+        }
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 14px var(--primary-glow);
+        }
+        .btn-primary:active { transform: translateY(0); }
+
+        .btn-ai-magic {
+            background: linear-gradient(135deg, #9333ea 0%, #ec4899 100%);
+            color: #ffffff;
+            font-weight: 700;
+            border-radius: 12px;
+            padding: 10px 18px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 14px rgba(168, 85, 247, 0.35);
+            border: none;
+            cursor: pointer;
+        }
+        .btn-ai-magic:hover {
+            opacity: 0.95;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 18px rgba(168, 85, 247, 0.45);
+        }
+        .btn-ai-magic:active { transform: translateY(0); }
+
+        .btn-secondary {
+            background-color: var(--bg-surface);
+            color: var(--text-main);
+            font-weight: 600;
+            border-radius: 10px;
+            padding: 8px 14px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            border: 1px solid var(--border-color);
+            transition: all 0.2s ease;
+        }
+        .btn-secondary:hover {
+            border-color: var(--primary-border);
+            color: var(--primary);
+            background-color: var(--primary-light);
+        }
+
+        /* Inputs & Controls */
+        .custom-input, .custom-select, .custom-textarea {
+            width: 100%;
+            background-color: var(--bg-surface);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 9px 12px;
+            font-size: 13px;
+            transition: all 0.15s ease;
+            outline: none;
+        }
+        .custom-input:focus, .custom-select:focus, .custom-textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px var(--primary-light);
+        }
+
+        /* ========================================================
+           DATE & TIME INPUTS INTERACTIVE PICKER UX
+           Membuat seluruh area kotak input tanggal/waktu dapat diklik
+           langsung untuk memunculkan pemilih kalender tanpa harus
+           mengincar icon kalender kecil.
+           ======================================================== */
+        input[type="date"],
+        input[type="time"],
+        input[type="datetime-local"],
+        input[type="month"] {
+            cursor: pointer;
+        }
+        input[type="date"]::-webkit-calendar-picker-indicator,
+        input[type="time"]::-webkit-calendar-picker-indicator,
+        input[type="datetime-local"]::-webkit-calendar-picker-indicator,
+        input[type="month"]::-webkit-calendar-picker-indicator {
+            cursor: pointer;
+            opacity: 0.8;
+            transition: opacity 0.15s ease, transform 0.15s ease;
+        }
+        input[type="date"]::-webkit-calendar-picker-indicator:hover,
+        input[type="time"]::-webkit-calendar-picker-indicator:hover,
+        input[type="datetime-local"]::-webkit-calendar-picker-indicator:hover,
+        input[type="month"]::-webkit-calendar-picker-indicator:hover {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+        body.theme-dark input[type="date"]::-webkit-calendar-picker-indicator,
+        .dark input[type="date"]::-webkit-calendar-picker-indicator,
+        body.theme-dark input[type="time"]::-webkit-calendar-picker-indicator,
+        .dark input[type="time"]::-webkit-calendar-picker-indicator {
+            filter: invert(1);
+            opacity: 0.8;
+        }
+        body.theme-dark input[type="date"]::-webkit-calendar-picker-indicator:hover,
+        .dark input[type="date"]::-webkit-calendar-picker-indicator:hover,
+        body.theme-dark input[type="time"]::-webkit-calendar-picker-indicator:hover,
+        .dark input[type="time"]::-webkit-calendar-picker-indicator:hover {
+            opacity: 1;
+        }
+
+        /* ========================================================
+           DROPDOWN MENU & DROPDOWN OPTIONS (THEME-ALIGNED STYLING)
+           Selaras dengan Tema: Light Mode, Dark Mode, dan Neo-Brutalism
+           ======================================================== */
+
+        /* ---------------- 1. Global Select & Dropdown Base ---------------- */
+        select.custom-select,
+        .custom-select {
+            color-scheme: light;
+            font-family: inherit;
+        }
+
+        /* ---------------- 2. Dropdown Menu Container (Popovers) ---------------- */
+        .dropdown-menu,
+        #notificationDropdown {
+            border-radius: 12px !important;
+            border: 1px solid rgba(0, 0, 0, 0.08) !important;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04) !important;
+            background-color: var(--bg-card) !important;
+        }
+
+        /* Tema Gelap (Dark Mode) - Dropdown Popover */
+        .dark .dropdown-menu,
+        body.theme-dark .dropdown-menu,
+        .dark #notificationDropdown,
+        body.theme-dark #notificationDropdown {
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            box-shadow: 0 16px 36px -6px rgba(0, 0, 0, 0.6), 0 6px 16px -4px rgba(0, 0, 0, 0.4) !important;
+            background-color: #0f172a !important;
+        }
+
+        /* Tema Neo-Brutalism - Dropdown Popover */
+        body.theme-brutalism .dropdown-menu,
+        body.theme-brutalism #notificationDropdown {
+            background-color: #FFFFFF !important;
+            border: 2.5px solid #000000 !important;
+            box-shadow: 4px 4px 0px #000000 !important;
+            border-radius: 14px !important;
+        }
+
+        /* ---------------- 3. Dropdown Items (List di Popover) ---------------- */
+        .dropdown-item,
+        #notifDropdownList > div.dropdown-item {
+            border-radius: 8px !important;
+            padding: 10px 16px !important;
+            margin: 2px 0 !important;
+            border: none !important;
+            transition: all 0.2s ease !important;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            color: var(--text-main);
+        }
+
+        /* Hover Tema Terang (Light Mode) */
+        .dropdown-item:hover,
+        #notifDropdownList > div.dropdown-item:hover {
+            background-color: var(--primary-light) !important;
+            color: var(--primary) !important;
+            transform: translateX(2px);
+        }
+
+        /* Hover Tema Gelap (Dark Mode) */
+        .dark .dropdown-item:hover,
+        body.theme-dark .dropdown-item:hover,
+        .dark #notifDropdownList > div.dropdown-item:hover,
+        body.theme-dark #notifDropdownList > div.dropdown-item:hover {
+            background-color: rgba(255, 255, 255, 0.08) !important;
+            color: #ffffff !important;
+            transform: translateX(2px);
+        }
+
+        /* Tema Neo-Brutalism - Items */
+        body.theme-brutalism .dropdown-item,
+        body.theme-brutalism #notifDropdownList > div.dropdown-item {
+            background-color: #FFFFFF !important;
+            color: #000000 !important;
+            border: 2px solid #000000 !important;
+            box-shadow: 2px 2px 0px #000000 !important;
+            border-radius: 8px !important;
+            font-weight: 700 !important;
+            margin: 4px 0 !important;
+        }
+
+        body.theme-brutalism .dropdown-item:hover,
+        body.theme-brutalism #notifDropdownList > div.dropdown-item:hover {
+            background-color: var(--primary) !important;
+            color: #000000 !important;
+            transform: translate(-1px, -1px) !important;
+            box-shadow: 3.5px 3.5px 0px #000000 !important;
+        }
+
+        /* ---------------- 4. Dropdown Options (<select> Options) ---------------- */
+        /* Gaya Dasar Options */
+        select.custom-select option,
+        .custom-select option {
+            padding: 10px 14px !important;
+            font-size: 13px !important;
+            font-family: inherit !important;
+            background-color: var(--bg-surface);
+            color: var(--text-main);
+            border-radius: 6px;
+        }
+
+        /* Opsi Terpilih (Checked) - Tema Default & Terang */
+        select.custom-select option:checked,
+        .custom-select option:checked {
+            background-color: var(--primary) !important;
+            color: #ffffff !important;
+            font-weight: 700 !important;
+        }
+
+        /* Opsi Tema Gelap (Dark Mode) */
+        .dark select.custom-select,
+        .dark .custom-select,
+        body.theme-dark select.custom-select,
+        body.theme-dark .custom-select {
+            color-scheme: dark !important;
+            background-color: #0f172a !important;
+            color: #f8fafc !important;
+            border-color: #374151 !important;
+        }
+
+        .dark select.custom-select option,
+        .dark .custom-select option,
+        body.theme-dark select.custom-select option,
+        body.theme-dark .custom-select option {
+            background-color: #0f172a !important;
+            color: #f8fafc !important;
+        }
+
+        .dark select.custom-select option:checked,
+        .dark .custom-select option:checked,
+        body.theme-dark select.custom-select option:checked,
+        body.theme-dark .custom-select option:checked {
+            background-color: var(--primary) !important;
+            color: #ffffff !important;
+            font-weight: 700 !important;
+        }
+
+        /* Opsi Tema Neo-Brutalism */
+        body.theme-brutalism select.custom-select,
+        body.theme-brutalism .custom-select {
+            color-scheme: light !important;
+        }
+
+        body.theme-brutalism select.custom-select option,
+        body.theme-brutalism .custom-select option {
+            background-color: #FFFFFF !important;
+            color: #000000 !important;
+            font-weight: 700 !important;
+        }
+
+        body.theme-brutalism select.custom-select option:checked,
+        body.theme-brutalism .custom-select option:checked {
+            background-color: var(--primary) !important;
+            color: #000000 !important;
+            font-weight: 800 !important;
+        }
+
+        /* Optgroup Styling */
+        select.custom-select optgroup,
+        .custom-select optgroup {
+            font-weight: 700;
+            color: var(--text-muted);
+            background-color: var(--bg-surface);
+            padding: 6px 10px;
+        }
+        .dark select.custom-select optgroup,
+        body.theme-dark select.custom-select optgroup {
+            background-color: #0f172a !important;
+            color: #94a3b8 !important;
+        }
+        body.theme-brutalism select.custom-select optgroup {
+            background-color: #FFFFFF !important;
+            color: #000000 !important;
+            font-weight: 800 !important;
+        }
+
+        /* ---------------- 5. Custom HTML Dropdown Component (Bukan Kotak Kaku) ---------------- */
+        .custom-dropdown-container {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .custom-dropdown-container.is-open {
+            z-index: 9999 !important;
+            position: relative !important;
+            overflow: visible !important;
+        }
+
+        /* Elevasi seluruh kartu induk & wrapper saat dropdown sedang terbuka agar tidak tertutup card di bawahnya */
+        .dropdown-open-parent:not(.fixed):not([id$="Modal"]),
+        .glass-card:has(.custom-dropdown-container.is-open),
+        .hero-section:has(.custom-dropdown-container.is-open),
+        .category-card:has(.custom-dropdown-container.is-open),
+        .item-row-box:has(.custom-dropdown-container.is-open),
+        form:not(#reminderForm):has(.custom-dropdown-container.is-open),
+        #dashboardHeroSection:has(.custom-dropdown-container.is-open) {
+            z-index: 35 !important;
+            position: relative !important;
+            overflow: visible !important;
+        }
+
+        .modal-box:has(.custom-dropdown-container.is-open),
+        #reminderForm:has(.custom-dropdown-container.is-open) {
+            overflow: visible !important;
+        }
+
+        .main-content,
+        .app-layout {
+            z-index: auto !important;
+        }
+
+        .custom-dropdown-trigger {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            background-color: var(--bg-surface);
+            color: var(--text-main);
+            padding: 8px 14px;
+            font-size: 12.5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            outline: none;
+            user-select: none;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+        }
+        .custom-dropdown-trigger:hover {
+            border-color: var(--primary);
+            background-color: var(--primary-light);
+        }
+        .custom-dropdown-trigger.open {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px var(--primary-light);
+        }
+        .custom-dropdown-trigger.open i.fa-chevron-down {
+            transform: rotate(180deg);
+        }
+
+        /* Container Menu Dropdown (Rounded 12px, Soft Shadow, Samar Border) */
+        .custom-dropdown-options {
+            position: absolute;
+            top: calc(100% + 6px);
+            left: 0;
+            right: 0;
+            min-width: 100%;
+            z-index: 99999 !important;
+            border-radius: 12px !important; /* 1. Geometri & Sudut: 8px - 12px */
+            border: 1px solid rgba(0, 0, 0, 0.08) !important; /* 2. Kedalaman & Efek Melayang: Border samar */
+            box-shadow: 0 12px 28px -4px rgba(0, 0, 0, 0.12), 0 6px 12px -2px rgba(0, 0, 0, 0.05) !important;
+            background-color: var(--bg-card) !important;
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            padding: 6px !important; /* 3. Spasi & Napas kontainer */
+            max-height: 250px;
+            overflow-y: auto;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Terbuka ke atas jika ruang bawah sempit */
+        .custom-dropdown-options.open-up {
+            top: auto !important;
+            bottom: calc(100% + 6px) !important;
+            box-shadow: 0 -12px 28px -4px rgba(0, 0, 0, 0.12), 0 -6px 12px -2px rgba(0, 0, 0, 0.05) !important;
+        }
+
+        /* Dark Mode Options Container */
+        .dark .custom-dropdown-options,
+        body.theme-dark .custom-dropdown-options {
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            box-shadow: 0 16px 36px -6px rgba(0, 0, 0, 0.6), 0 6px 16px -4px rgba(0, 0, 0, 0.4) !important;
+            background-color: #0f172a !important;
+        }
+
+        /* Neo-Brutalism Options Container */
+        body.theme-brutalism .custom-dropdown-options {
+            background-color: #FFFFFF !important;
+            border: 2.5px solid #000000 !important;
+            box-shadow: 4px 4px 0px #000000 !important;
+            border-radius: 14px !important;
+        }
+        body.theme-brutalism .custom-dropdown-trigger {
+            background-color: #FFFFFF !important;
+            color: #000000 !important;
+            border: 2px solid #000000 !important;
+            box-shadow: 2.5px 2.5px 0px #000000 !important;
+            border-radius: 10px !important;
+            font-weight: 700 !important;
+        }
+        body.theme-brutalism .custom-dropdown-trigger:hover {
+            background-color: var(--primary-light) !important;
+        }
+
+        /* Custom Dropdown Option Items (Rounded 8px, Bukan Kotak 90 Derajat Kaku) */
+        .custom-dropdown-option {
+            border-radius: 8px !important; /* 1. Geometri & Sudut: 6px - 8px, BUKAN KOTAK! */
+            padding: 10px 16px !important; /* 3. Spasi & Napas: Vertikal 10px, Horizontal 16px */
+            margin: 2px 0 !important;
+            font-size: 13px !important;
+            font-weight: 500 !important;
+            color: var(--text-main) !important;
+            background-color: transparent;
+            transition: all 0.2s ease !important; /* 4. Micro-interactions transition */
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            user-select: none;
+        }
+
+        /* Hover State Option: Soft Brand Tint */
+        .custom-dropdown-option:hover {
+            background-color: var(--primary-light) !important;
+            color: var(--primary) !important;
+            transform: translateX(2px);
+        }
+
+        .dark .custom-dropdown-option:hover,
+        body.theme-dark .custom-dropdown-option:hover {
+            background-color: rgba(255, 255, 255, 0.08) !important;
+            color: #ffffff !important;
+            transform: translateX(2px);
+        }
+
+        /* Active / Selected Option */
+        .custom-dropdown-option.selected {
+            background-color: var(--primary-light) !important;
+            color: var(--primary) !important;
+            font-weight: 700 !important;
+        }
+        .custom-dropdown-option.selected .check-icon {
+            display: inline-block !important;
+        }
+        .custom-dropdown-option .check-icon {
+            display: none;
+            color: var(--primary);
+            font-size: 11px;
+        }
+
+        /* Neo-Brutalism Option Items */
+        body.theme-brutalism .custom-dropdown-option {
+            background-color: #FFFFFF !important;
+            color: #000000 !important;
+            border: 1.5px solid transparent !important;
+            border-radius: 8px !important;
+            font-weight: 700 !important;
+        }
+        body.theme-brutalism .custom-dropdown-option:hover {
+            background-color: var(--primary) !important;
+            color: #000000 !important;
+            border: 1.5px solid #000000 !important;
+            box-shadow: 2px 2px 0px #000000 !important;
+            transform: translate(-1px, -1px) !important;
+        }
+        body.theme-brutalism .custom-dropdown-option.selected {
+            background-color: var(--primary) !important;
+            color: #000000 !important;
+            border: 1.5px solid #000000 !important;
+            box-shadow: 2px 2px 0px #000000 !important;
+            font-weight: 800 !important;
+        }
+        body.theme-brutalism .custom-dropdown-option.selected .check-icon {
+            color: #000000 !important;
+        }
+
+        /* Sidebar Navigation */
+        .sidebar {
+            width: 260px;
+            background-color: var(--sidebar-bg);
+            border-right: 1px solid var(--sidebar-border);
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 45;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .nav-link-btn {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 14px;
+            border-radius: 12px;
+            font-size: 13.5px;
+            font-weight: 600;
+            color: var(--text-muted);
+            transition: all 0.15s ease;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+        .nav-link-btn:hover {
+            color: var(--text-main);
+            background-color: var(--primary-light);
+        }
+        .nav-link-btn.active {
+            background-color: var(--primary);
+            color: #ffffff !important;
+            box-shadow: 0 4px 12px var(--primary-glow);
+        }
+        .nav-link-btn.active i {
+            color: #ffffff !important;
+        }
+
+        /* ---------------- Theme Selection Cards & Active Theme Buttons ---------------- */
+        .theme-select-card {
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            user-select: none;
+        }
+        .theme-select-card:hover {
+            transform: translateY(-2px);
+        }
+        .theme-select-card.active {
+            border-color: var(--primary) !important;
+            box-shadow: 0 0 0 2px var(--primary-light), 0 8px 24px -4px rgba(16, 185, 129, 0.25) !important;
+            background-color: var(--primary-light) !important;
+        }
+        body.theme-brutalism .theme-select-card.active {
+            border: 2.5px solid #000000 !important;
+            box-shadow: 4.5px 4.5px 0px #000000 !important;
+            background-color: #FAF5FF !important;
+        }
+
+        /* ---------------- Modern Card Border Selection Cards & Styles ---------------- */
+        .cardborder-select-card {
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            user-select: none;
+        }
+        .cardborder-select-card:hover {
+            transform: translateY(-2px);
+        }
+        .cardborder-select-card.active {
+            border-color: var(--primary) !important;
+            box-shadow: 0 0 0 2px var(--primary-light), 0 8px 24px -4px rgba(16, 185, 129, 0.25) !important;
+            background-color: var(--primary-light) !important;
+        }
+        body.theme-brutalism .cardborder-select-card.active {
+            border: 2.5px solid #000000 !important;
+            box-shadow: 4.5px 4.5px 0px #000000 !important;
+            background-color: #FAF5FF !important;
+        }
+
+        /* 0. Border Kategori (Default yang saat ini teraplikasikan) */
+        body:not(.theme-brutalism).card-style-category-accent {
+            /* Menggunakan konfigurasi standar bawaan Saturuma (Border 1px halus, radius 16px, border aksen strip kategori, dan shadow warna kategori) */
+        }
+
+        /* 1. Thin & Subtle (1px Netral) */
+        body:not(.theme-brutalism).card-style-thin-subtle .category-card:not(.cardborder-preview-card) {
+            border-left: 1px solid var(--border-color) !important;
+            border-color: var(--border-color) !important;
+            box-shadow: var(--shadow-sm) !important;
+        }
+        body:not(.theme-brutalism).card-style-thin-subtle .glass-card:not(.cardborder-select-card):not(.cardborder-preview-card) {
+            border: 1px solid var(--border-color) !important;
+            box-shadow: var(--shadow-sm) !important;
+        }
+        body:not(.theme-brutalism).card-style-thin-subtle .category-card:not(.cardborder-preview-card):hover,
+        body:not(.theme-brutalism).card-style-thin-subtle .glass-card:not(.cardborder-select-card):not(.cardborder-preview-card):hover {
+            border-color: var(--border-color) !important;
+            box-shadow: var(--shadow-md) !important;
+        }
+
+        /* 2. Gradient Border */
+        body:not(.theme-brutalism).card-style-gradient-border .glass-card:not(.cardborder-select-card):not(.cardborder-preview-card),
+        body:not(.theme-brutalism).card-style-gradient-border .category-card:not(.cardborder-preview-card) {
+            border: 1.5px solid transparent !important;
+            background: linear-gradient(var(--bg-card), var(--bg-card)) padding-box,
+                        linear-gradient(135deg, rgba(139, 92, 246, 0.5) 0%, rgba(59, 130, 246, 0.5) 100%) border-box !important;
+            box-shadow: 0 4px 18px -2px rgba(139, 92, 246, 0.12), 0 2px 6px -1px rgba(59, 130, 246, 0.08) !important;
+        }
+        body:not(.theme-brutalism).card-style-gradient-border .glass-card:not(.cardborder-select-card):not(.cardborder-preview-card):hover,
+        body:not(.theme-brutalism).card-style-gradient-border .category-card:not(.cardborder-preview-card):hover {
+            transform: translateY(-2px);
+            background: linear-gradient(var(--bg-card), var(--bg-card)) padding-box,
+                        linear-gradient(135deg, #A855F7 0%, #2563EB 100%) border-box !important;
+            box-shadow: 0 12px 30px -4px rgba(139, 92, 246, 0.25), 0 0 20px 2px rgba(59, 130, 246, 0.2) !important;
+        }
+        body.theme-dark:not(.theme-brutalism).card-style-gradient-border .glass-card:not(.cardborder-select-card):not(.cardborder-preview-card),
+        body.theme-dark:not(.theme-brutalism).card-style-gradient-border .category-card:not(.cardborder-preview-card) {
+            box-shadow: 0 6px 22px -2px rgba(0, 0, 0, 0.5), 0 0 14px 1px rgba(139, 92, 246, 0.18) !important;
+        }
+
+        /* 3. Hover Glow Animation */
+        body:not(.theme-brutalism).card-style-hover-glow .glass-card:not(.cardborder-select-card):not(.cardborder-preview-card),
+        body:not(.theme-brutalism).card-style-hover-glow .category-card:not(.cardborder-preview-card),
+        body:not(.theme-brutalism).card-style-hover-glow .kpi-card:not(.cardborder-preview-card) {
+            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+                        border-color 0.25s ease,
+                        box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        }
+        body:not(.theme-brutalism).card-style-hover-glow .glass-card:not(.cardborder-select-card):not(.cardborder-preview-card):hover,
+        body:not(.theme-brutalism).card-style-hover-glow .category-card:not(.cardborder-preview-card):hover,
+        body:not(.theme-brutalism).card-style-hover-glow .kpi-card:not(.cardborder-preview-card):hover {
+            transform: translateY(-2.5px) !important;
+            border-color: rgba(16, 185, 129, 0.6) !important;
+            box-shadow: 0 12px 28px -5px rgba(16, 185, 129, 0.22),
+                        0 0 18px 3px rgba(16, 185, 129, 0.16) !important;
+        }
+        body.theme-dark:not(.theme-brutalism).card-style-hover-glow .glass-card:not(.cardborder-select-card):not(.cardborder-preview-card):hover,
+        body.theme-dark:not(.theme-brutalism).card-style-hover-glow .category-card:not(.cardborder-preview-card):hover,
+        body.theme-dark:not(.theme-brutalism).card-style-hover-glow .kpi-card:not(.cardborder-preview-card):hover {
+            border-color: rgba(16, 185, 129, 0.7) !important;
+            box-shadow: 0 14px 32px -5px rgba(0, 0, 0, 0.65),
+                        0 0 22px 3px rgba(16, 185, 129, 0.24) !important;
+        }
+
+        /* 4. Shadow-First / Borderless */
+        body:not(.theme-brutalism).card-style-borderless .glass-card:not(.cardborder-select-card):not(.cardborder-preview-card),
+        body:not(.theme-brutalism).card-style-borderless .category-card:not(.cardborder-preview-card),
+        body:not(.theme-brutalism).card-style-borderless .kpi-card:not(.cardborder-preview-card) {
+            border: none !important;
+            border-color: transparent !important;
+            border-left: none !important;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04),
+                        0 8px 20px -3px rgba(15, 23, 42, 0.07),
+                        0 2px 4px -2px rgba(15, 23, 42, 0.04) !important;
+        }
+        body:not(.theme-brutalism).card-style-borderless .glass-card:not(.cardborder-select-card):not(.cardborder-preview-card):hover,
+        body:not(.theme-brutalism).card-style-borderless .category-card:not(.cardborder-preview-card):hover,
+        body:not(.theme-brutalism).card-style-borderless .kpi-card:not(.cardborder-preview-card):hover {
+            transform: translateY(-2.5px) !important;
+            box-shadow: 0 16px 36px -4px rgba(15, 23, 42, 0.12),
+                        0 4px 12px -2px rgba(15, 23, 42, 0.06) !important;
+        }
+        body.theme-dark:not(.theme-brutalism).card-style-borderless .glass-card:not(.cardborder-select-card):not(.cardborder-preview-card),
+        body.theme-dark:not(.theme-brutalism).card-style-borderless .category-card:not(.cardborder-preview-card),
+        body.theme-dark:not(.theme-brutalism).card-style-borderless .kpi-card:not(.cardborder-preview-card) {
+            box-shadow: 0 6px 22px -2px rgba(0, 0, 0, 0.6) !important;
+        }
+        body.theme-dark:not(.theme-brutalism).card-style-borderless .glass-card:not(.cardborder-select-card):not(.cardborder-preview-card):hover,
+        body.theme-dark:not(.theme-brutalism).card-style-borderless .category-card:not(.cardborder-preview-card):hover,
+        body.theme-dark:not(.theme-brutalism).card-style-borderless .kpi-card:not(.cardborder-preview-card):hover {
+            box-shadow: 0 18px 42px -4px rgba(0, 0, 0, 0.75) !important;
+        }
+        .theme-toggle-btn {
+            transition: all 0.15s ease;
+        }
+        .theme-toggle-btn.active {
+            background-color: var(--primary) !important;
+            color: #ffffff !important;
+            transform: scale(1.08);
+            box-shadow: 0 2px 6px -1px rgba(0, 0, 0, 0.2) !important;
+        }
+        body.theme-brutalism .theme-toggle-btn.active {
+            background-color: var(--primary) !important;
+            color: #000000 !important;
+            border: 1.5px solid #000000 !important;
+            box-shadow: 2px 2px 0px #000000 !important;
+        }
+
+        /* Category Switcher Pills */
+        .cat-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            border: 1px solid var(--border-color);
+            background-color: var(--bg-surface);
+            color: var(--text-muted);
+            white-space: nowrap;
+        }
+        .cat-pill:hover {
+            border-color: var(--primary);
+            color: var(--text-main);
+        }
+        .cat-pill.active {
+            background-color: var(--primary);
+            color: #ffffff;
+            border-color: var(--primary);
+            box-shadow: 0 2px 8px var(--primary-glow);
+        }
+
+        /* Mobile Bottom Nav with iOS Safe-Area & Raised FAB */
+        .mobile-bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: calc(64px + env(safe-area-inset-bottom, 0px));
+            padding-bottom: env(safe-area-inset-bottom, 0px);
+            background-color: var(--bg-surface);
+            border-top: 1px solid var(--border-color);
+            -webkit-backdrop-filter: var(--glass-backdrop, blur(14px));
+            backdrop-filter: var(--glass-backdrop, blur(14px));
+            z-index: 40 !important;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding-left: 6px;
+            padding-right: 6px;
+        }
+        .bottom-nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 3px;
+            font-size: 10.5px;
+            font-weight: 600;
+            color: var(--text-muted);
+            padding: 6px 6px;
+            border-radius: 10px;
+            transition: all 0.15s ease;
+            flex: 1;
+        }
+        .bottom-nav-item i { font-size: 16px; }
+        .bottom-nav-item.active {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        /* Raised Center Action (FAB) */
+        .bottom-nav-fab-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            position: relative;
+        }
+        .bottom-nav-fab {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: -20px;
+            box-shadow: 0 4px 14px var(--primary-glow);
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 3px solid var(--bg-surface);
+            cursor: pointer;
+        }
+        .bottom-nav-fab i { font-size: 18px; }
+        .bottom-nav-fab:hover, .bottom-nav-fab:active {
+            transform: scale(1.08);
+            box-shadow: 0 6px 20px var(--primary-glow);
+        }
+        .bottom-nav-fab.active {
+            outline: 2px solid var(--text-main);
+            box-shadow: 0 6px 18px var(--primary-glow);
+            transform: scale(1.06);
+        }
+
+        /* Skeleton Shimmer Loading */
+        @keyframes skeleton-shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        .skeleton-shimmer {
+            background: linear-gradient(90deg, rgba(200, 200, 200, 0.12) 25%, rgba(200, 200, 200, 0.28) 50%, rgba(200, 200, 200, 0.12) 75%);
+            background-size: 200% 100%;
+            animation: skeleton-shimmer 1.5s infinite;
+            border-radius: 8px;
+        }
+        body.theme-dark .skeleton-shimmer {
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.04) 25%, rgba(255, 255, 255, 0.09) 50%, rgba(255, 255, 255, 0.04) 75%);
+            background-size: 200% 100%;
+        }
+
+        /* SPA Transitions & Smooth Micro-Animations */
+        @keyframes viewFadeSlide {
+            0% {
+                opacity: 0;
+                transform: translateY(6px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .spa-view-active {
+            animation: viewFadeSlide 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes modalPop {
+            0% {
+                opacity: 0;
+                transform: scale(0.96) translateY(8px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+        .modal-card-anim {
+            animation: modalPop 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes toastSlideIn {
+            0% {
+                opacity: 0;
+                transform: translateY(14px) scale(0.95);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        .toast-item {
+            animation: toastSlideIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        /* Tablet & Mobile Drawer Sidebar & Responsive Layout (< 1024px) */
+        @media (max-width: 1024px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+            .sidebar.mobile-open {
+                transform: translateX(0);
+                box-shadow: 0 0 50px rgba(0,0,0,0.5);
+            }
+            .main-content {
+                margin-left: 0 !important;
+                padding-bottom: calc(88px + env(safe-area-inset-bottom, 0px)) !important;
+            }
+        }
+        @media (min-width: 1025px) {
+            .main-content { margin-left: 260px; padding-bottom: 24px !important; }
+            #sidebarBackdrop { display: none !important; }
+            .mobile-bottom-nav { display: none !important; }
+        }
+
+        /* ========================================================
+           MODERN NOTIFICATION BADGE (5 PRINSIP UTAMA)
+           ======================================================== */
+        .modern-badge-anchor {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        /* 1. Top-Right Anchoring: relative pada container & absolute -top-1 -right-1 (-4px) pada badge */
+        /* 2. High-Contrast Accent: #EF4444 (bg-red-500) dengan teks putih */
+        /* 5. Isolated Border/Ring Effect: 2px ring-white di sekeliling badge */
+        .modern-badge {
+            position: absolute;
+            top: -4px; /* -top-1 */
+            right: -4px; /* -right-1 */
+            background-color: #EF4444; /* bg-red-500 */
+            color: #ffffff;
+            border-radius: 9999px;
+            box-shadow: 0 0 0 2px #ffffff; /* ring-2 ring-white */
+            pointer-events: none;
+            user-select: none;
+            z-index: 20;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.15s ease;
+        }
+
+        /* Penyesuaian isolated ring untuk mode gelap & neo-brutalism */
+        body.theme-dark .modern-badge {
+            box-shadow: 0 0 0 2px #0f172a;
+        }
+        body.theme-brutalism .modern-badge {
+            box-shadow: 0 0 0 2px #000000;
+        }
+
+        /* 3. Micro-Typography: Ukuran 10px Bold dengan teks otomatis 99+ */
+        .modern-badge.badge-count {
+            min-width: 18px;
+            height: 18px;
+            padding: 0 4px;
+            font-size: 10px; /* text-[10px] */
+            font-weight: 700; /* font-bold */
+            line-height: 1;
+            letter-spacing: -0.02em;
+        }
+
+        .modern-badge-pop {
+            animation: badgePopAnim 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        @keyframes badgePopAnim {
+            0% { transform: scale(0.2); opacity: 0; }
+            70% { transform: scale(1.25); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* Scan Drag & Drop Area */
+        .dropzone-area {
+            border: 2px dashed var(--border-color);
+            border-radius: var(--radius-lg);
+            background: var(--bg-surface);
+            transition: all 0.2s ease;
+        }
+        .dropzone-area.dragover {
+            border-color: var(--primary);
+            background: var(--primary-light);
+        }
+
+        /* Otentikasi & Login Styles */
+        @keyframes authShake {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-8px); }
+            40%, 80% { transform: translateX(8px); }
+        }
+        .auth-shake {
+            animation: authShake 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+        }
+
+        body.theme-brutalism #authCard {
+            background-color: #FFFFFF !important;
+            border: 3px solid #000000 !important;
+            box-shadow: 6px 6px 0px #000000 !important;
+            border-radius: 24px !important;
+        }
+        body.theme-dark #authOverlay {
+            background-color: #070b13;
+        }
+
+        /* Cegah kedipan layar login (FOUC) saat refresh jika sudah memiliki sesi login aktif */
+        html.has-session #authOverlay {
+            display: none !important;
+        }
+
+        /* ---------------- Media Print & PDF Export Styling ---------------- */
+        @media print {
+            html, body {
+                width: 100% !important;
+                height: auto !important;
+                min-height: auto !important;
+                overflow: visible !important;
+                background: #ffffff !important;
+                color: #0f172a !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+
+            /* Sembunyikan semua elemen di luar modal laporan bulanan */
+            body > *:not(#monthlyReportModal) {
+                display: none !important;
+            }
+
+            /* Modal overlay dinetralisir agar mengalir natural multi-halaman */
+            #monthlyReportModal {
+                display: block !important;
+                position: static !important;
+                inset: auto !important;
+                width: 100% !important;
+                height: auto !important;
+                min-height: auto !important;
+                max-height: none !important;
+                overflow: visible !important;
+                background: transparent !important;
+                backdrop-filter: none !important;
+                -webkit-backdrop-filter: none !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                box-shadow: none !important;
+                border: none !important;
+            }
+
+            #monthlyReportModal .modal-box {
+                display: block !important;
+                position: static !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                height: auto !important;
+                max-height: none !important;
+                overflow: visible !important;
+                background: #ffffff !important;
+                border: none !important;
+                box-shadow: none !important;
+                border-radius: 0 !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+
+            /* Sembunyikan header modal (tombol cetak, tutup, dan pilih bulan) saat dicetak */
+            #monthlyReportModal .modal-box > div:first-child {
+                display: none !important;
+            }
+
+            /* Wrapper printable content */
+            #monthlyReportModal .modal-box > div:last-child {
+                display: block !important;
+                overflow: visible !important;
+                height: auto !important;
+                max-height: none !important;
+                padding: 0 !important;
+                background: #ffffff !important;
+            }
+
+            #monthlyReportPrintArea {
+                display: block !important;
+                width: 100% !important;
+                height: auto !important;
+                overflow: visible !important;
+                position: static !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                background: #ffffff !important;
+                color: #0f172a !important;
+            }
+
+            /* Hindari pemotongan baris tabel & card di tengah pergantian halaman */
+            #monthlyReportPrintArea table,
+            #monthlyReportPrintArea tr,
+            #monthlyReportPrintArea .grid > div,
+            #monthlyReportPrintArea .space-y-2\.5,
+            #monthlyReportPrintArea .pt-6 {
+                break-inside: avoid !important;
+                page-break-inside: avoid !important;
+            }
+
+            #monthlyReportPrintArea table {
+                width: 100% !important;
+                table-layout: auto !important;
+                border-collapse: collapse !important;
+                font-size: 10.5px !important;
+            }
+
+            #monthlyReportPrintArea table thead {
+                display: table-header-group !important;
+            }
+
+            #monthlyReportPrintArea table th,
+            #monthlyReportPrintArea table td {
+                padding: 6px 7px !important;
+            }
+
+            /* Pastikan kontainer tabel tidak memotong konten secara horizontal */
+            #monthlyReportPrintArea .overflow-x-auto {
+                overflow: visible !important;
+            }
+
+            /* Tampilkan seluruh teks secara utuh tanpa terpotong titik-titik (truncate) */
+            #monthlyReportPrintArea .truncate {
+                overflow: visible !important;
+                text-overflow: clip !important;
+                white-space: normal !important;
+                word-break: break-word !important;
+            }
+
+            .no-print {
+                display: none !important;
+            }
+
+            @page {
+                size: A4 portrait;
+                margin: 8mm 10mm;
+            }
+        }
+
+        /* ========================================================
+           DISTINKSI VISUAL MENU INPUT: MODE EDIT VS INPUT BARU
+           ======================================================== */
+        .form-mode-edit-active {
+            border: 2px solid #F59E0B !important;
+            box-shadow: 0 10px 25px -5px rgba(245, 158, 11, 0.22), 0 0 18px 2px rgba(245, 158, 11, 0.12) !important;
+            position: relative;
+            background: linear-gradient(to bottom, rgba(245, 158, 11, 0.03), transparent 90px), var(--bg-card) !important;
+        }
+        .form-mode-edit-active::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #F59E0B 0%, #D97706 50%, #B45309 100%);
+            border-top-left-radius: 14px;
+            border-top-right-radius: 14px;
+            z-index: 10;
+        }
+        body.theme-dark .form-mode-edit-active {
+            border-color: #F59E0B !important;
+            box-shadow: 0 14px 32px -5px rgba(0, 0, 0, 0.65), 0 0 20px 2px rgba(245, 158, 11, 0.22) !important;
+            background: linear-gradient(to bottom, rgba(245, 158, 11, 0.06), transparent 90px), var(--bg-card) !important;
+        }
+
+        /* Tombol Simpan Mode Edit (Amber Glow & Standout) */
+        .btn-submit-edit {
+            background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%) !important;
+            color: #FFFFFF !important;
+            border: 1px solid #FBBF24 !important;
+            box-shadow: 0 4px 14px 0 rgba(245, 158, 11, 0.38) !important;
+        }
+        .btn-submit-edit:hover {
+            background: linear-gradient(135deg, #D97706 0%, #B45309 100%) !important;
+            box-shadow: 0 6px 20px 0 rgba(245, 158, 11, 0.5) !important;
+            transform: translateY(-1px);
+        }
+
+        /* Tombol Simpan Mode Input Baru */
+        .btn-submit-new {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover, #059669) 100%) !important;
+            color: #FFFFFF !important;
+            box-shadow: 0 4px 14px 0 rgba(16, 185, 129, 0.28) !important;
+        }
+        .btn-submit-new:hover {
+            filter: brightness(0.95);
+            box-shadow: 0 6px 18px 0 rgba(16, 185, 129, 0.38) !important;
+            transform: translateY(-1px);
+        }
+
+
+        /* ========================================================
+           ADAPTIVE BRAND LOGO & ICON (STYLE 2: 4-S CLOVER MONOGRAM)
+           ======================================================== */
+        .saturuma-brand-badge {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+            border: 1.5px solid rgba(238, 79, 122, 0.3);
+            box-shadow: 0 4px 14px rgba(238, 79, 122, 0.15);
+        }
+
+        .saturuma-brand-badge .brand-logo-img {
+            width: 78%;
+            height: 78%;
+            object-fit: contain;
+            transition: transform 0.3s ease, filter 0.3s ease;
+            filter: drop-shadow(0 2px 5px rgba(238, 79, 122, 0.25));
+        }
+
+        .saturuma-brand-badge:hover .brand-logo-img {
+            transform: scale(1.06);
+        }
+
+        /* Dark Mode Adaptation (Style 2: Obsidian Slate & Coral Neon) */
+        .dark .saturuma-brand-badge,
+        .theme-dark .saturuma-brand-badge {
+            background: linear-gradient(135deg, #181e2a 0%, #0a0e16 100%);
+            border: 1.5px solid rgba(238, 79, 122, 0.45);
+            box-shadow: 0 4px 16px rgba(238, 79, 122, 0.28), 0 0 14px rgba(238, 79, 122, 0.18);
+        }
+
+        .dark .saturuma-brand-badge .brand-logo-img,
+        .theme-dark .saturuma-brand-badge .brand-logo-img {
+            filter: drop-shadow(0 0 8px rgba(238, 79, 122, 0.55));
+        }
+
+        /* Neo-Brutalism Adaptation */
+        .theme-brutalism .saturuma-brand-badge {
+            background: #ffffff;
+            border: 2px solid #000000;
+            box-shadow: 3px 3px 0 #000000;
+        }
+        .theme-brutalism .saturuma-brand-badge .brand-logo-img {
+            filter: none;
+        }
